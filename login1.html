@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playwrite+AU+SA:wght@100..400&display=swap");
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="class">
+      <div id="class1">
+        <div class="login">
+          <h1>Login</h1>
+          <label for="email">Your Email</label>
+          <input type="email" id="email" />
+          <label for="password">Your Password</label>
+          <input type="password" id="password" />
+          <button>login</button>
+          <p>If you do not have an account, please create one</p>
+          <button id="t" onclick="x()">create</button>
+        </div>
+
+        <div class="create">
+          <h1>Create Account</h1>
+          <label for="text">User Name</label>
+          <input type="text" id="text" />
+          <label for="email">Your Email</label>
+          <input type="email" id="email" />
+          <label for="password">Your Password</label>
+          <input type="password" id="password" />
+          <button>create</button>
+          <p>If you have an account, please log in</p>
+          <button id="v" onclick="v()">login</button>
+        </div>
+      </div>
+    </div>
+    <script src="java.js"></script>
+  </body>
+</html>

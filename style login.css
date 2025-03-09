@@ -1,0 +1,124 @@
+*{
+    color: rgb(255, 255, 255);
+    font-family: "Playwrite AU SA", serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal;
+}
+body{
+    background: #3D4490;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contener{
+    box-shadow:0 5px 30px black;
+    border-radius: 10px;
+    
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 800px;
+    height: 400px;
+
+}
+
+#login , #create{
+    display: flex;
+    position: absolute;
+    width: 800px;
+    height: 400px;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+.login1 , .create1 , .mass1 , .mass2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    
+
+    
+}
+
+button{
+    width: 90px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: #3d449000;
+    color: white;
+    border: 1px solid white;
+    text-transform: uppercase;
+    margin: 10px;
+    transition: 80ms;
+
+}
+button:active{
+    transform: scale(0.90);
+    
+
+}
+
+
+input{
+    position: relative;
+    border: none;
+    margin: 0px;
+    width: 200px;
+    height: 20px;
+    outline: none;
+    padding: 7px;
+    border-bottom : 2px solid rgb(255, 255, 255);
+    background-color: rgba(250, 235, 215, 0);
+    
+}
+input:focus{
+    border-bottom : 2px solid rgb(255, 255, 255);
+}
+label{
+    transform: translateY(-35px) translateX(-60px);
+    color: rgb(255, 255, 255);
+    transition: 200ms;
+}        
+input:focus + label{
+    transform: translateY(-60px) translateX(-60px);
+    font-size: 0.9rem;
+}
+input:valid + label{
+    transform: translateY(-60px) translateX(-60px);
+    font-size: 0.9rem;
+}
+#back{
+    z-index: -1;
+    background-color: #E26B00;
+    width: 400px;
+    height: 400px;
+    transform: translateX(50%);
+    transition: 250ms;
+    
+}
+.create1{
+    order: 1;
+}
+#login{
+    z-index: 0;
+}
+
+#create{
+    
+    display: none;
+    
+}
+
+p{
+    font-size: 20px;
+    padding: 30px;
+    text-align: center;
+}
+
