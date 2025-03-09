@@ -581,14 +581,20 @@ p {
   #ht3,
   #ht4 {
     width: 100px;
-    height: 100px;
+    height: 150px;
+  }
+  #ht1 img,
+  #ht2 img,
+  #ht3 img,
+  #ht4 img {
+    height: 100%;
   }
   .projcat {
     width: 200px;
     height: 200px;
     margin: 20px;
   }
-  .proo{
+  .proo {
     height: 450px;
   }
 }
