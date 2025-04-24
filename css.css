@@ -4,10 +4,13 @@
   font-weight: weight;
   font-style: normal;
 }
+html {
+  scroll-behavior: smooth;
+}
 nav {
   display: flex;
   justify-content: space-between;
-  height: 10vh;
+  height: 10%;
 }
 .title {
   font-size: 30px;
@@ -97,7 +100,6 @@ body {
   flex-direction: column;
   background-color: #041320;
   backdrop-filter: blur(1);
-  scrollbar-gutter: none;
   margin: 0;
   z-index: -5;
 }
@@ -149,11 +151,24 @@ header {
   margin: auto;
   margin-top: 15px;
 }
+.myskills {
+  height: 100%;
+}
 .home {
   display: flex;
   justify-content: space-between;
-  height: 90vh;
+  height: 90%;
   align-items: center;
+}
+body {
+  scroll-behavior: smooth;
+}
+.mys {
+  height: 100vh;
+}
+
+section {
+  height: 100vh;
 }
 .img {
   position: relative;
@@ -169,14 +184,13 @@ header {
   box-shadow: 0 0 40px rgb(255, 255, 255);
   order: 1;
 
-
   z-index: 1;
   animation-name: jump;
   animation-iteration-count: infinite;
   animation-duration: 4s;
 }
 .myprojcat {
-  height: 100%;
+  height: 90%;
   width: 100%;
 }
 .proo {
@@ -184,13 +198,14 @@ header {
   height: 100%;
   display: flex;
   flex-wrap: wrap;
-
+  align-items: center;
   justify-content: space-around;
 }
 .projcat {
+  width: 300px;
+  height: 300px;
+
   position: relative;
-  flex-shrink: 1;
-  height: 40%;
   margin: 15px;
   border-radius: 15px;
   overflow: hidden;
@@ -198,9 +213,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
   transition: 900ms;
-  animation-duration: 2s;
 }
 .pott {
   animation-name: ttb;
@@ -232,7 +245,7 @@ header {
   opacity: 1;
 }
 .about {
-  height: 90vh;
+  height: 90%;
   display: flex;
   align-items: center;
   display: flex;
@@ -273,22 +286,12 @@ h1 {
 }
 .abut {
   display: flex;
-  height: 90vh;
+  height: 90%;
   width: 100%;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   flex-wrap: wrap;
-}
-.card {
-  width: 100%;
-  height: 100%;
-  position: relative;
-
-  transform-style: preserve-3d;
-  transition: 500ms;
-}
-.ht1:hover {
-  transform: rotateY(180deg);
 }
 .fonth {
   width: 100%;
@@ -307,45 +310,29 @@ h1 {
   backface-visibility: hidden;
   transform: rotateY(180deg);
 }
-#ht1,
-#ht2,
-#ht3,
-#ht4 {
+.myprojectc {
+  height: 100%;
+}
+.card {
   background-color: #00000059;
   padding: 30px;
   border-radius: 20px;
   border: 3px solid black;
   align-items: center;
   text-align: center;
-  margin: 15px;
   cursor: pointer;
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  flex-shrink: 1;
-  opacity: 1;
-  perspective: 250px;
   width: 250px;
   height: 250px;
-  transition: 500ms;
-  animation-duration: 2s;
-  max-width: 250px;
+  transition: 1000ms;
+  margin: 10px;
+
 }
 
-#ht1,
-#ht2,
-#ht3,
-#ht4 p {
-  word-spacing: 2px;
-  font-size: 20px;
-  margin: 15px;
-}
-#ht1:hover,
-#ht2:hover,
-#ht3:hover,
-#ht4:hover {
-  transform: scale(1.2);
+.card :hover{
+  transform: scale(1.05);
 }
 h3 {
   font-size: 25px;
@@ -366,6 +353,9 @@ p {
   cursor: pointer;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease-out;
+}
+.card img {
+  width: 100%;
 }
 .text1 .text2:hover {
   width: 200px;
@@ -468,8 +458,8 @@ p {
 #none,
 #avv,
 #my {
-  backdrop-filter: blur(300px);
-  height: 80px;
+  height: 10%;
+
   align-items: center;
   display: flex;
   justify-content: center;
@@ -485,6 +475,9 @@ p {
 @media (min-width: 1170px) {
   .home {
     justify-content: space-around;
+  }
+  .projcat, .card{
+    margin: 50px 0;
   }
   .about p {
     font-size: 30px;
@@ -519,12 +512,15 @@ p {
   #gg {
     text-align: center;
   }
+  .title {
+    display: none;
+  }
 }
 @media (max-width: 950px) {
   .img,
   img {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
   }
 
   .home {
@@ -541,25 +537,28 @@ p {
   .abut {
     align-items: center;
   }
-  .ht1,
-  .ht2,
-  .ht3 {
-    min-width: 100px;
-    flex-grow: 1;
-  }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 560px) {
   .img {
     width: 200px;
     height: 200px;
+  }
+  nav div {
+    height: 10vh;
+  }
+  section {
+    height: 100%;
   }
   .img img {
     width: 100%;
     height: 100%;
   }
-  #ffdf {
-    margin: 15px 0;
+  .Aboutme{
+    height: 100%;
+  }
+  .proo{
+    height: 100%;
   }
   .backhh {
     height: 100%;
@@ -570,41 +569,25 @@ p {
     height: 100%;
     width: 100%;
   }
-  nav div {
-    height: 50px;
-  }
-  .about {
-    height: 100vh;
-  }
-  #ht1,
-  #ht2,
-  #ht3,
-  #ht4 {
-    width: 100px;
-    height: 110px;
-  }
-  #ht1 img,
-  #ht2 img,
-  #ht3 img,
-  #ht4 img {
-    height: 100%;
-  }
-  .projcat {
+  .card{
     width: 200px;
     height: 200px;
-    margin: 20px;
   }
-  .proo {
-    height: 450px;
+  .projcat {
+    width: 300px;
+    height: 300px;
+  }
+  .myprojectc{
+    padding-bottom: 100px;
   }
 }
 
 @media (max-width: 600px) {
   nav {
-    height: 20%;
+    height: 10%;
   }
   .home {
-    height: 80%;
+    height: 90%;
   }
 
   nav a {
@@ -617,14 +600,19 @@ p {
     font-size: 30px;
     margin: 0 15px;
   }
+  .img {
+    width: 250px;
+    height: 250px;
+  }
+  .img img {
+    width: 100%;
+    height: 100%;
+  }
   .w {
     margin-left: 40px;
   }
   .home {
     text-align: center;
-  }
-  .img {
-    margin: 30px;
   }
   .font {
     font-size: 30px;
