@@ -1,3 +1,42 @@
+import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+const supabaseUrl = "https://iprlbkddmgolrnkhqwrh.supabase.co";
+const supabaseKey =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlwcmxia2RkbWdvbHJua2hxd3JoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU4MDA1ODIsImV4cCI6MjA2MTM3NjU4Mn0.x5ueV-3t0uzsS9ifzQRO9m8dT5Iv8OF2qu0_n3M-Dwk";
+const supabase = createClient(supabaseUrl, supabaseKey);
+let admin = false;
+document.querySelector(".bttt").addEventListener("click", async () => {
+  const { data, error } = await supabase
+    .from("password")
+    .select("id, password");
+  let pass = document.querySelector(".passs").value;
+  if (pass === data[0].password) {
+    document.querySelector("#sfdf1").innerHTML = "Admin";
+    document.querySelector("#sfdf1").style.color = "green";
+    document.querySelector(".h3").innerHTML = "Login successful";
+    document.querySelector("h3").style.color = "green";
+    setTimeout(() => {
+      document.querySelector(".admin").classList.toggle("adminnan");
+    }, 2000);
+    setTimeout(() => {
+      document.querySelector(".admin").style.display = "none";
+    }, 2120);
+    admin = true;
+    h();
+  } else {
+    document.querySelector(".h3").innerHTML = "The Password is Worng";
+    document.querySelector("h3").style.color = "red";
+    setTimeout(() => {
+      document.querySelector(".h3").style.color = "white";
+      document.querySelector(".h3").innerHTML = "Enter The password";
+    }, 2000);
+  }
+  document.querySelector(".formm").reset();
+  if (error) {
+    console.error("خطأ في استرجاع البيانات:", error);
+    return;
+  }
+});
+
 let ht1 = document.getElementById("ht1");
 let ht2 = document.getElementById("ht2");
 let ht3 = document.getElementById("ht3");
@@ -59,3 +98,76 @@ window.onload = function () {
   text();
   setInterval(text, 16000);
 };
+document.querySelector("#sfdf1").addEventListener("click", () => {
+  if (admin === false) {
+    document.querySelector(".admin").classList.toggle("adminnan");
+  }
+});
+document.querySelector("#btcs").addEventListener("click", () => {
+  console.log(1);
+  document.querySelector(".a").classList.toggle("aa");
+});
+document.querySelector("#btss").addEventListener("click", () => {
+  console.log(1);
+  document.querySelector(".as").classList.toggle("aa");
+});
+
+function h() {
+  if (admin === false) {
+    document.querySelector("#btss").style.display = "none";
+    document.querySelector("#btcs").style.display = "none";
+  } else {
+    document.querySelector("#btss").style.display = "flex";
+    document.querySelector("#btcs").style.display = "flex";
+  }
+}
+h();
+document.getElementById("crt").addEventListener("click", async () => {
+  const url = document.getElementById("js").value;
+  const file = document.getElementById("jsf").files[0];
+  if (!file || !url) {
+    alert("رجاءً ارفع صورة واكتب رابط");
+    return;
+  }
+  const filePath = `public/${Date.now()}_${file.name}`;
+  const { data: uploadData, error: uploadError } = await supabase.storage
+    .from("img")
+    .upload(filePath, file);
+  if (uploadError) {
+    console.error("خطأ في رفع الصورة:", uploadError);
+    alert("فشل رفع الصورة!");
+    return;
+  }
+  const imageUrl = supabase.storage.from("img").getPublicUrl(filePath)
+    .data.publicUrl;
+  const { data: insertData, error: insertError } = await supabase
+    .from("posts")
+    .insert([{ title: url, image_url: imageUrl }]);
+  if (insertError) {
+    console.error("خطأ في حفظ البيانات:", insertError);
+    alert("فشل حفظ البيانات!");
+    return;
+  }
+  alert("تم رفع الصورة وحفظ العنوان بنجاح! 🎉");
+  document.getElementById("cpro").reset();
+});
+let ht = ``;
+const { data, error } = await supabase
+  .from("posts")
+  .select("id, title, image_url")
+  .order("id", { ascending: false });
+function htmlg() {
+  if (error) {
+    console.error("خطأ في حفظ البيانات:", insertError);
+    alert("فشل حفظ البيانات!");
+    return;
+  }
+  data.forEach((element) => {
+    ht += ` <div data-aos="fade-up-left" class="projcat" id="dds4">
+              <img src="${element.image_url}" loading="lazy" alt="Project 4 preview" />
+              <a id="a" href="${element.title}">view</a>
+            </div>`;
+  });
+  document.querySelector(".proo").innerHTML = ht;
+}
+htmlg();
