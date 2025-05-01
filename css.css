@@ -328,10 +328,9 @@ h1 {
   height: 250px;
   transition: 1000ms;
   margin: 10px;
-
 }
 
-.card :hover{
+.card :hover {
   transform: scale(1.05);
 }
 h3 {
@@ -446,6 +445,25 @@ p {
   backdrop-filter: blur(100px);
   z-index: -5;
 }
+#btcs, #btss {
+  width: 70px;
+  height: 35px;
+  font-size: 35px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 7px;
+  justify-content: center;
+  transform: translateX(50px);
+  cursor: pointer;
+  border-radius: 10px;
+  border: 3px solid rgb(255, 255, 255);
+  background-color: transparent;
+  color: white;
+  transition: 100ms;
+  &&:active {
+    transform: scale(0.9) translateX(50px);
+  }
+}
 .backhh {
   flex-wrap: wrap;
   position: fixed;
@@ -453,6 +471,39 @@ p {
   width: 100%;
   height: 100vh;
   z-index: -5;
+}
+.admin ,.a, .as{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 500ms;
+  overflow: hidden;
+  height: 0px;
+  form {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    input {
+      height: 70%;
+      border-radius: 10px;
+      outline: none;
+      padding: 5px;
+      border: 2px solid rgb(255, 255, 255);
+      background-color: transparent;
+      transition: 100ms;
+      color: white;
+      &&:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+}
+
+.adminnan , .aa {
+  height: 50px;
 }
 
 #none,
@@ -476,7 +527,8 @@ p {
   .home {
     justify-content: space-around;
   }
-  .projcat, .card{
+  .projcat,
+  .card {
     margin: 50px 0;
   }
   .about p {
@@ -554,10 +606,10 @@ p {
     width: 100%;
     height: 100%;
   }
-  .Aboutme{
+  .Aboutme {
     height: 100%;
   }
-  .proo{
+  .proo {
     height: 100%;
   }
   .backhh {
@@ -569,7 +621,7 @@ p {
     height: 100%;
     width: 100%;
   }
-  .card{
+  .card {
     width: 200px;
     height: 200px;
   }
@@ -577,7 +629,7 @@ p {
     width: 300px;
     height: 300px;
   }
-  .myprojectc{
+  .myprojectc {
     padding-bottom: 100px;
   }
 }
