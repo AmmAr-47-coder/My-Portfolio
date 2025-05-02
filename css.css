@@ -20,7 +20,33 @@ nav {
   justify-content: center;
   align-items: center;
 }
-
+.btnrr {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  cursor: pointer;
+  width: 30%;
+  height: 15%;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border: none;
+  text-transform: capitalize;
+  font-size: 15px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  border-radius: 15px 0 0 0;
+  transition: 500ms;
+  &&:hover{
+    color: rgb(255, 255, 255);
+    background-color: red;
+  }
+  &&:active{
+    color: rgb(255, 255, 255);
+    background-color: green;
+    transform: 10ms;
+  }
+}
 nav div {
   width: 100%;
   display: flex;
@@ -445,7 +471,8 @@ p {
   backdrop-filter: blur(100px);
   z-index: -5;
 }
-#btcs, #btss {
+#btcs,
+#btss {
   width: 70px;
   height: 35px;
   font-size: 35px;
@@ -472,7 +499,9 @@ p {
   height: 100vh;
   z-index: -5;
 }
-.admin ,.a, .as{
+.admin,
+.a,
+.as {
   width: 100%;
   display: flex;
   align-items: center;
@@ -502,7 +531,8 @@ p {
   }
 }
 
-.adminnan , .aa {
+.adminnan,
+.aa {
   height: 50px;
 }
 
