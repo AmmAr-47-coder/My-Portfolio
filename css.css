@@ -510,23 +510,17 @@ p {
   overflow: hidden;
   height: 0px;
   form {
-    width: 70%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 100%;
-    input {
       height: 70%;
       border-radius: 10px;
       outline: none;
-      padding: 5px;
+      padding: 5px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border: 2px solid rgb(255, 255, 255);
       background-color: transparent;
       transition: 100ms;
       color: white;
-      &&:active {
-        transform: scale(0.9);
-      }
     }
   }
 }
