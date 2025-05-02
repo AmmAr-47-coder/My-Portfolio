@@ -169,7 +169,7 @@ function htmlg() {
     return;
   }
   data.forEach((element) => {
-    ht += ` <div data-re-move='${element.title}' data-aos="fade-left" class="projcat" id="dds4">
+    ht += ` <div id='${element.title}' data-aos="fade-left" class="projcat" id="dds4">
              <button data-re-move='${element.title}' class="btnrr">remove</button>
               <img src="${element.image_url}" loading="lazy" alt="Project 4 preview" />
               <a id="a" href="${element.title}">view</a>
@@ -187,6 +187,7 @@ function htmlg() {
       } else {
         alert("تم الحذف بنجاح:");
       }
+      document.getElementById(btn.dataset.reMove).remove();
     });
   });
 }
