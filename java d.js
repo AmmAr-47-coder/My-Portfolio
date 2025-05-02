@@ -3,7 +3,7 @@ const supabaseUrl = "https://iprlbkddmgolrnkhqwrh.supabase.co";
 const supabaseKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlwcmxia2RkbWdvbHJua2hxd3JoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDU4MDA1ODIsImV4cCI6MjA2MTM3NjU4Mn0.x5ueV-3t0uzsS9ifzQRO9m8dT5Iv8OF2qu0_n3M-Dwk";
 const supabase = createClient(supabaseUrl, supabaseKey);
-let admin = false;
+let admin = true;
 document.querySelector(".bttt").addEventListener("click", async () => {
   const { data, error } = await supabase
     .from("password")
@@ -116,12 +116,18 @@ function h() {
   if (admin === false) {
     document.querySelector("#btss").style.display = "none";
     document.querySelector("#btcs").style.display = "none";
+    document
+      .querySelectorAll(".btnrr")
+      .forEach((h) => (h.style.display = "none"));
   } else {
     document.querySelector("#btss").style.display = "flex";
     document.querySelector("#btcs").style.display = "flex";
+    document
+      .querySelectorAll(".btnrr")
+      .forEach((h) => (h.style.display = "block"));
   }
 }
-h();
+
 document.getElementById("crt").addEventListener("click", async () => {
   const url = document.getElementById("js").value;
   const file = document.getElementById("jsf").files[0];
@@ -163,11 +169,26 @@ function htmlg() {
     return;
   }
   data.forEach((element) => {
-    ht += ` <div data-aos="fade-up-left" class="projcat" id="dds4">
+    ht += ` <div data-re-move='${element.title}' data-aos="fade-left" class="projcat" id="dds4">
+             <button data-re-move='${element.title}' class="btnrr">remove</button>
               <img src="${element.image_url}" loading="lazy" alt="Project 4 preview" />
               <a id="a" href="${element.title}">view</a>
             </div>`;
   });
   document.querySelector(".proo").innerHTML = ht;
+  document.querySelectorAll(".btnrr").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const { data, error } = await supabase
+        .from("posts")
+        .delete()
+        .eq("title", btn.dataset.reMove);
+      if (error) {
+        alert("حدث خطأ أثناء الحذف:");
+      } else {
+        alert("تم الحذف بنجاح:");
+      }
+    });
+  });
 }
 htmlg();
+h();
