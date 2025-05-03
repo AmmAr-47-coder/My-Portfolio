@@ -529,6 +529,9 @@ p {
     transform: scale(0.9) translateX(50px);
   }
 }
+.edit , #formimg, #btmm{
+  display: none;
+}
 .backhh {
   flex-wrap: wrap;
   position: fixed;
