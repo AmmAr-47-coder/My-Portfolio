@@ -268,11 +268,10 @@ document.querySelector(".save").addEventListener("click", async () => {
   document.querySelector(".ppp").style.opacity = 1;
 });
 function tt() {
-  if (admin === false) {
-    document.querySelector(".edit").style.display = "none";
-    document.querySelector("#formimg").style.display = "none";
-    document.querySelector("#btmm").style.display = "none";
-  } else {
+  if (admin === true) {
+    document.querySelector(".edit").style.display = "block";
+    document.querySelector("#formimg").style.display = "block";
+    document.querySelector("#btmm").style.display = "block";
   }
 }
 tt();
