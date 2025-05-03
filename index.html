@@ -72,7 +72,8 @@
               type="password"
               required
               class="passs"
-              placeholder="onlyAdmin"
+              id="passs"
+              placeholder="Admin only"
             />
             <input
               class="bttt"
@@ -85,7 +86,10 @@
 
         <div class="home" id="dd">
           <div data-aos="fade-right" data-aos-duration="1000" class="img">
-            <img src="1111.png" alt="my photo" />
+            <button id="btmm">save image</button>
+            <form id="formimg"><input type="file" name="" id="imgch" /></form>
+
+            <img alt="my photo" id="imgoo" />
           </div>
           <div class="pro" style="margin: 20px; margin-top: 0">
             <h1
@@ -203,20 +207,18 @@
         </h1>
         <div class="about">
           <div data-aos="fade-right" data-aos-duration="1000" class="img">
-            <img src="1111.png" alt="my photo" loading="lazy" />
+            <img src="" id="imgooo" alt="my photo" loading="lazy" />
           </div>
           <div
             class="p"
             style="animation-name: rtl; animation-duration: 1s; order: 1"
           >
-            <p>
-              My name is Ammar Shaaban. I am 23 years old. I am a graduate of
-              commerce from Beni Suef University. I was born in the Tamiya
-              Center in Fayoum. I loved the field of programming and wanted to
-              learn it. Thank God I learned HTML, CSS, and JavaScript and I
-              became a Front-end developer. I strive to be a Full Stack
-              developer.
+          <button class="edit">Edit</button>
+          <button class="save">Save</button>
+            <p class="ppp">
             </p>
+            <textarea name="" id=""></textarea>
+          </div>
           </div>
         </div>
       </section>
