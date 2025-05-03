@@ -5,6 +5,7 @@ const supabaseKey =
 const supabase = createClient(supabaseUrl, supabaseKey);
 let admin = false;
 document.querySelector(".bttt").addEventListener("click", async () => {
+  event.preventDefault();
   const { data, error } = await supabase
     .from("password")
     .select("id, password");
@@ -14,6 +15,7 @@ document.querySelector(".bttt").addEventListener("click", async () => {
     document.querySelector("#sfdf1").style.color = "green";
     document.querySelector(".h3").innerHTML = "Login successful";
     document.querySelector("h3").style.color = "green";
+    tt();
     setTimeout(() => {
       document.querySelector(".admin").classList.toggle("adminnan");
     }, 2000);
@@ -21,6 +23,9 @@ document.querySelector(".bttt").addEventListener("click", async () => {
       document.querySelector(".admin").style.display = "none";
     }, 2120);
     admin = true;
+    document.querySelector(".edit").style.display = "block";
+    document.querySelector("#formimg").style.display = "block";
+    document.querySelector("#btmm").style.display = "block";
     h();
   } else {
     document.querySelector(".h3").innerHTML = "The Password is Worng";
@@ -100,15 +105,14 @@ window.onload = function () {
 };
 document.querySelector("#sfdf1").addEventListener("click", () => {
   if (admin === false) {
+    document.getElementById("passs").focus();
     document.querySelector(".admin").classList.toggle("adminnan");
   }
 });
 document.querySelector("#btcs").addEventListener("click", () => {
-  console.log(1);
   document.querySelector(".a").classList.toggle("aa");
 });
 document.querySelector("#btss").addEventListener("click", () => {
-  console.log(1);
   document.querySelector(".as").classList.toggle("aa");
 });
 
@@ -129,6 +133,7 @@ function h() {
 }
 
 document.getElementById("crt").addEventListener("click", async () => {
+  event.preventDefault();
   const url = document.getElementById("js").value;
   const file = document.getElementById("jsf").files[0];
   if (!file || !url) {
@@ -193,3 +198,81 @@ function htmlg() {
 }
 htmlg();
 h();
+document.getElementById("btmm").addEventListener("click", async () => {
+  const file = document.getElementById("imgch").files[0];
+  if (!file) {
+    alert("رجاءً ارفع صورة");
+    return;
+  }
+
+  const filePath = `public/${Date.now()}_${file.name}`;
+
+  const { data, error } = await supabase.storage
+    .from("imgpro")
+    .upload(filePath, file);
+  if (error) {
+    console.error("خطأ في رفع الصورة:", error);
+    alert("فشل رفع الصورة!");
+    return;
+  }
+  const imageUrl = supabase.storage.from("imgpro").getPublicUrl(filePath)
+    .data.publicUrl;
+  const { data: dd, error: de } = await supabase
+    .from("imgpro")
+    .update({ url: imageUrl })
+    .eq("id", 30);
+  const { data: sData, error: serror } = await supabase
+    .from("imgpro")
+    .select("url");
+  const urlimg = sData.map((item) => item.url);
+  function efefg() {
+    document.getElementById("imgoo").src = urlimg;
+    document.getElementById("imgooo").src = urlimg;
+  }
+  efefg();
+  document.getElementById("formimg").reset();
+});
+
+const { data: sData, error: serror } = await supabase
+  .from("imgpro")
+  .select("url");
+const urlimg = sData.map((item) => item.url);
+function efefg() {
+  document.getElementById("imgoo").src = urlimg;
+  document.getElementById("imgooo").src = urlimg;
+}
+efefg();
+async function textarea() {
+  const { data: textdata, error: texterror } = await supabase
+    .from("text")
+    .select("text");
+  document.querySelector(".ppp").innerHTML = textdata.map((f) => f.text);
+  document.querySelector("textarea").innerHTML = textdata.map((f) => f.text);
+}
+textarea();
+document.querySelector(".edit").addEventListener("click", () => {
+  document.querySelector(".ppp").style.opacity = 0;
+  document.querySelector("textarea").style.display = "block";
+  document.querySelector(".save").style.display = "block";
+  document.querySelector("textarea").focus();
+});
+document.querySelector(".save").addEventListener("click", async () => {
+  let ttt = document.querySelector("textarea").value;
+  const { data: textdata, error: texterror } = await supabase
+    .from("text")
+    .update({ text: ttt })
+    .eq("id", 1);
+  textarea();
+  document.querySelector(".save").style.display = "none";
+  document.querySelector("textarea").style.display = "none";
+  document.querySelector(".ppp").style.opacity = 1;
+});
+function tt() {
+  if (admin === false) {
+    document.querySelector(".edit").style.display = "none";
+    document.querySelector("#formimg").style.display = "none";
+    document.querySelector("#btmm").style.display = "none";
+  } else {
+  }
+}
+tt();
