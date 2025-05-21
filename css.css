@@ -511,6 +511,9 @@ p {
   backdrop-filter: blur(100px);
   z-index: -5;
 }
+#btmm{
+  width: 100%;
+}
 .edit,
 #formimg,
 #btmm {
@@ -688,7 +691,12 @@ p {
     width: 250px;
     height: 250px;
   }
-
+  .p {
+    height: 70%;
+    button {
+      transform: translateY(-15px);
+    }
+  }
   .home {
     flex-direction: column;
     justify-content: center;
