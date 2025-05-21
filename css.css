@@ -256,13 +256,15 @@ textarea {
   display: none;
 }
 .proo {
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
   display: flex;
-  gap: 120px;
   flex-wrap: wrap;
-  align-items: center;
+  gap: 120px;
   justify-content: space-around;
+  align-items: center;
+  padding: 120px;
 }
 .projcat {
   width: 300px;
@@ -509,6 +511,11 @@ p {
   backdrop-filter: blur(100px);
   z-index: -5;
 }
+.edit,
+#formimg,
+#btmm {
+  display: none;
+}
 #btcs,
 #btss {
   width: 70px;
@@ -528,9 +535,6 @@ p {
   &&:active {
     transform: scale(0.9) translateX(50px);
   }
-}
-.edit , #formimg, #btmm{
-  display: none;
 }
 .backhh {
   flex-wrap: wrap;
@@ -571,7 +575,6 @@ p {
     }
   }
 }
-
 
 .adminnan,
 .aa {
@@ -663,6 +666,9 @@ p {
   #w {
     display: none;
   }
+  .proo {
+    padding: 50px;
+  }
 }
 @media (max-width: 675px) {
   #gg {
@@ -673,6 +679,10 @@ p {
   }
 }
 @media (max-width: 950px) {
+  .proo {
+    padding: 10px;
+    gap: 50px;
+  }
   .img,
   img {
     width: 250px;
@@ -716,6 +726,7 @@ p {
   .proo {
     height: 100%;
     gap: 10px;
+    padding: 0;
   }
   .backhh {
     height: 100%;
@@ -755,7 +766,6 @@ p {
       h3 {
         font-size: 15px;
         width: 25%;
-
       }
     }
   }
